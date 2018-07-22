@@ -28,6 +28,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,6 +70,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--使用阿里巴巴数据库连接池监控-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -88,7 +95,21 @@
             <version>3.0.3</version>
         </dependency>
     </dependencies>
+    <!--开发环境配置-->
+    <profiles>
+        <profile>
+            <id>product</id>
+            <properties>
+                <log.path>..\logs</log.path>
+                <file.name>project.log</file.name>
+                <rolling.file.name>..\logs\project-%d{yyyy-MM-dd}-%i.log.gz</rolling.file.name>
+                <error.rolling.file.name>..\logs\project_error-%d{yyyy-MM-dd}-%i.log.gz</error.rolling.file.name>
+                <every.file.size>10MB</every.file.size>
+                <output.log.level>info</output.log.level>
+            </properties>
+        </profile>
 
+    </profiles>
     <build>
         <plugins>
             <plugin>
