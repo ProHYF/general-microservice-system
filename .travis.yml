@@ -1,1 +1,8 @@
+#基本执行流程编写---
+langure: java
+jdk:
+     - oraclejdk8
+script: mvn -DskipTests=true clean package
+
+
 
