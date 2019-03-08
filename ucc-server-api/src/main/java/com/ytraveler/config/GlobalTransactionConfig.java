@@ -42,6 +42,7 @@ public class GlobalTransactionConfig {
         sqlSessionFactoryBean.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setTypeAliasesPackage("com.ytraveler.module");
+        //sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("/mapper/mybatis-config.xml"));正确使用方式
         sqlSessionFactoryBean.setConfigLocation(new DefaultResourceLoader().getResource("classpath:mapper/mybatis-config.xml"));//这里使用此方式来注册
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapper/mybatis/*.xml"));
         return sqlSessionFactoryBean.getObject();
