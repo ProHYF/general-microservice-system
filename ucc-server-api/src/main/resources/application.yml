@@ -1,1 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ucc-server-api
+#jdbc≈‰÷√
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 5
+      max-active: 20
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: true
+      db-type: mysql
+    url: jdbc:mysql://47.105.110.238:3306/ytraveler_uac
+    username: root
+    password: 12345678
+#mybastis≈‰÷√
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ytraveler.module
+  config-location: classpath:mapper/mybatis-config.xml
+#pagehelper∑÷“≥≤Âº˛≈‰÷√
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  params: count=countSql
+  support-methods-arguments: true
+#redis≈‰÷√
+
+
+
 
