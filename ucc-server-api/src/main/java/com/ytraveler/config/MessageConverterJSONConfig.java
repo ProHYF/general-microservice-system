@@ -3,14 +3,13 @@ package com.ytraveler.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *
- * @author hyf
+ * 消息转换机制
+ * @author xss
  * @version 1.0
- * @date 2019-03-08 14:24
+ * @date 2019-03-13 14:31
  */
-@Configuration
-public class PageHelperConfig {
-    public static void main(String[] args) {
 
-    }
+@Configuration
+public class MessageConverterJSONConfig {
+
 }
