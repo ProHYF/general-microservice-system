@@ -6,22 +6,22 @@
             %d{yyyy-MM-dd HH:mm:ss} [%t] [%c{1}.%M()] %-5level - %msg%xEx%n
         </property>
         <property name="log_path">
-            ${log.path}
+            ..\logs
         </property>
         <property name="file_name">
-            ${file.name}
+            project.log
         </property>
         <property name="rolling_file_name">
-           ${rolling.file.name}
+            ..\logs\project-%d{yyyy-MM-dd}-%i.log.gz
         </property>
         <property name="error_file_name">
             project_error.log
         </property>
         <property name="error_rolling_file_name">
-           ${error.rolling.file.name}
+            ..\logs\project_error-%d{yyyy-MM-dd}-%i.log.gz
         </property>
-        <property name="every_file_size">${every.file.size}</property><!-- 日志切割的最小单位 -->
-        <property name="output_log_level">${output.log.level}</property><!-- 日志输出级别 -->
+        <property name="every_file_size">10MB</property><!-- 日志切割的最小单位 -->
+        <property name="output_log_level">info</property><!-- 日志输出级别 -->
     </Properties>
 
     <Appenders>

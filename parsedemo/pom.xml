@@ -39,6 +39,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -60,45 +61,24 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--使用阿里巴巴数据库连接池监控-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.0.20</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-base</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-        <!--easypoi-web  耦合了spring-mvc 基于AbstractView,极大的简化spring-mvc下的导出功能-->
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-web</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-        <!--easypoi-annotation 基础注解包,作用与实体对象上,拆分后方便maven多工程的依赖管理-->
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-annotation</artifactId>
-            <version>3.0.3</version>
-        </dependency>
     </dependencies>
     <!--开发环境配置-->
     <profiles>
         <profile>
-            <id>product</id>
+            <id>dev</id>
             <properties>
                 <log.path>..\logs</log.path>
                 <file.name>project.log</file.name>
@@ -107,6 +87,9 @@
                 <every.file.size>10MB</every.file.size>
                 <output.log.level>info</output.log.level>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
     </profiles>
